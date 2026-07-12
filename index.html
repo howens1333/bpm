@@ -14,6 +14,8 @@
     --muted: #a0a0a3;
     --accent: #1ed760;
     --accent-dim: rgba(30, 215, 96, 0.15);
+    --pad-accent: #b98af0;
+    --pad-accent-dim: rgba(185, 138, 240, 0.15);
     --border: #2e2e30;
     --warn: #d98a5f;
   }
@@ -233,19 +235,6 @@
   .row-main:hover { background: var(--card-hover); }
   .item-row.is-song .row-main { border-left-color: var(--accent); }
 
-  .row-badge {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-  }
-
   .row-text { flex: 1; min-width: 0; }
   .row-title {
     font-size: 15px;
@@ -267,15 +256,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 6px;
+    margin-top: 8px;
   }
   .row-tag {
-    font-size: 11px;
-    font-weight: 600;
-    background: var(--accent-dim);
-    color: var(--accent);
-    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    background: var(--accent);
+    color: #0a0a0a;
+    padding: 5px 11px;
     border-radius: 20px;
+  }
+  .row-tag.tag-pad {
+    background: var(--pad-accent);
+    color: #0a0a0a;
   }
   .row-chevron {
     color: var(--muted);
@@ -288,15 +282,23 @@
 
   .row-options {
     display: none;
-    padding: 4px 18px 16px;
+    padding: 4px 18px 18px;
     background: var(--bg);
   }
   .item-row.open .row-options { display: block; }
+  .option-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 14px 0 8px;
+  }
+  .option-group-label:first-child { margin-top: 12px; }
   .option-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    margin-top: 12px;
   }
   .option-chip {
     background: var(--card);
@@ -315,6 +317,10 @@
     background: var(--accent);
     color: #0a0a0a;
     border-color: var(--accent);
+  }
+  .option-chip.pad-chip.selected {
+    background: var(--pad-accent);
+    border-color: var(--pad-accent);
   }
   .empty-state { font-size: 13px; color: var(--muted); padding: 16px 18px; }
 </style>
@@ -365,6 +371,7 @@
 <script>
   // ---------- Shared state ----------
   const OPTIONS = ['HH1', 'HH2', 'HH3', 'HH4', 'WL', 'Mac', 'LAV 1', 'LAV 2', 'LAV 3', 'Meredith', 'Billy'];
+  const PAD_OPTIONS = ['Pad C', 'Pad C#/Db', 'Pad D', 'Pad D#/Eb', 'Pad E', 'Pad F', 'Pad F#/Gb', 'Pad G', 'Pad G#/Ab', 'Pad A', 'Pad A#/Bb', 'Pad B'];
   let n = 4;
   let songs = [];
   let items = [];
@@ -457,14 +464,6 @@
     localStorage.setItem(storageKey(itemId), JSON.stringify(tags));
   }
 
-  // A small rotating palette for song initial badges (PCO-style colored circles)
-  const BADGE_COLORS = ['#3b6fd1', '#5aa66b', '#c4823a', '#a15dc9', '#3ba3a3', '#c15a7a'];
-  function badgeColor(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
-    return BADGE_COLORS[hash % BADGE_COLORS.length];
-  }
-
   function renderItems() {
     if (!items.length) {
       itemsEl.innerHTML = '<div class="empty-state">no plan items yet</div>';
@@ -482,9 +481,16 @@
 
       const optionsHtml = `
         <div class="row-options">
+          <div class="option-group-label">Mics / People</div>
           <div class="option-grid">
             ${OPTIONS.map(opt => `
               <button class="option-chip ${tags.includes(opt) ? 'selected' : ''}" data-opt="${opt}">${opt}</button>
+            `).join('')}
+          </div>
+          <div class="option-group-label">Pads</div>
+          <div class="option-grid">
+            ${PAD_OPTIONS.map(opt => `
+              <button class="option-chip pad-chip ${tags.includes(opt) ? 'selected' : ''}" data-opt="${opt}">${opt.replace('Pad ', '')}</button>
             `).join('')}
           </div>
         </div>
@@ -505,18 +511,14 @@
       const sub = isSong
         ? `${it.artist ? it.artist + ' · ' : ''}${it.bpm ? it.bpm + ' BPM' : 'no BPM set'}`
         : '';
-      const badge = isSong
-        ? `<div class="row-badge" style="background:${badgeColor(it.title || '')}">${(it.title || '?').trim().charAt(0).toUpperCase()}</div>`
-        : '';
 
       return `
         <div class="item-row ${isSong ? 'is-song' : ''}" data-id="${itemId}">
           <div class="row-main">
-            ${badge}
             <div class="row-text">
               <div class="row-title">${it.title}</div>
               ${sub ? `<div class="row-sub">${sub}</div>` : ''}
-              <div class="row-tags">${tags.map(t => `<span class="row-tag">${t}</span>`).join('')}</div>
+              <div class="row-tags">${tags.map(t => `<span class="row-tag ${t.startsWith('Pad ') ? 'tag-pad' : ''}">${t.replace('Pad ', '')}</span>`).join('')}</div>
             </div>
             <div class="row-chevron">▶</div>
           </div>
