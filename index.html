@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BPM → ms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Plan Tools</title>
 <style>
   :root {
     --bg: #121212;
@@ -12,21 +13,33 @@
     --text: #f2f2f2;
     --muted: #a0a0a3;
     --accent: #1ed760;
+    --accent-dim: rgba(30, 215, 96, 0.15);
     --border: #2e2e30;
+    --warn: #d98a5f;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   body {
     margin: 0;
     min-height: 100vh;
     background: var(--bg);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     color: var(--text);
-    padding: 32px 20px 60px;
   }
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
   }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .col { border-right: none !important; border-bottom: 1px solid var(--border); }
+  }
+  .col {
+    padding: 28px 22px 60px;
+    overflow-y: auto;
+  }
+  .col-left { border-right: 1px solid var(--border); }
+
   h1 {
     font-size: 13px;
     letter-spacing: 0.12em;
@@ -42,12 +55,12 @@
     min-height: 16px;
   }
 
-  /* --- Song cards --- */
+  /* --- Song cards (left) --- */
   .cards {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
   .song-card {
     display: flex;
@@ -60,18 +73,13 @@
     cursor: pointer;
     transition: background 0.15s ease;
   }
-  .song-card:hover {
-    background: var(--card-hover);
-  }
-  .song-card.active {
-    border-color: var(--accent);
-    background: var(--card-hover);
-  }
+  .song-card:hover { background: var(--card-hover); }
+  .song-card.active { border-color: var(--accent); background: var(--card-hover); }
   .art {
     width: 52px;
     height: 52px;
     border-radius: 6px;
-    background: #333 linear-gradient(135deg, #3a3a3c, #232325);
+    background: linear-gradient(135deg, #3a3a3c, #232325);
     flex-shrink: 0;
     object-fit: cover;
     display: flex;
@@ -80,10 +88,7 @@
     font-size: 20px;
     color: var(--muted);
   }
-  .song-info {
-    flex: 1;
-    min-width: 0;
-  }
+  .song-info { flex: 1; min-width: 0; }
   .song-title {
     font-size: 15px;
     font-weight: 600;
@@ -99,14 +104,8 @@
     text-overflow: ellipsis;
     margin-top: 2px;
   }
-  .song-sub .no-bpm {
-    color: #d98a5f;
-  }
-  .song-ms {
-    text-align: right;
-    flex-shrink: 0;
-    padding-left: 10px;
-  }
+  .song-sub .no-bpm { color: var(--warn); }
+  .song-ms { text-align: right; flex-shrink: 0; padding-left: 10px; }
   .song-ms .val {
     font-size: 20px;
     font-weight: 700;
@@ -120,12 +119,12 @@
     letter-spacing: 0.05em;
   }
 
-  /* --- Manual calculator --- */
+  /* --- Manual calculator (left) --- */
   .panel {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 32px;
+    padding: 28px;
   }
   .panel h2 {
     font-size: 12px;
@@ -147,25 +146,20 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     color: var(--text);
-    font-size: 28px;
+    font-size: 26px;
     font-family: inherit;
     padding: 14px 16px;
     text-align: center;
   }
-  input[type="number"]:focus {
-    outline: none;
-    border-color: var(--accent);
-  }
-  .field {
-    margin-bottom: 20px;
-  }
-  .notes {
+  input[type="number"]:focus { outline: none; border-color: var(--accent); }
+  .field { margin-bottom: 20px; }
+  .notes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin: 20px 0;
   }
-  .notes button {
+  .notes-grid button {
     background: var(--bg);
     border: 1px solid var(--border);
     color: var(--text);
@@ -175,10 +169,8 @@
     border-radius: 8px;
     cursor: pointer;
   }
-  .notes button:hover {
-    border-color: var(--accent);
-  }
-  .notes button.active {
+  .notes-grid button:hover { border-color: var(--accent); }
+  .notes-grid button.active {
     background: var(--accent);
     color: #0a0a0a;
     border-color: var(--accent);
@@ -190,83 +182,183 @@
     padding-top: 20px;
     border-top: 1px solid var(--border);
   }
-  .result .value {
-    font-size: 44px;
-    color: var(--accent);
-    font-weight: 700;
+  .result .value { font-size: 40px; color: var(--accent); font-weight: 700; }
+  .result .unit { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* --- Plan items / notes (right) --- */
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
-  .result .unit {
-    font-size: 13px;
+  .item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .item-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+  }
+  .item-header:hover { background: var(--card-hover); }
+  .item-type-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--muted);
+  }
+  .item-type-dot.song { background: var(--accent); }
+  .item-type-dot.header { background: #6f9ceb; }
+  .item-type-dot.media { background: #d98a5f; }
+  .item-main { flex: 1; min-width: 0; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .item-type-label {
+    font-size: 11px;
     color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     margin-top: 2px;
   }
+  .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .item-tag {
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+  .item-chevron {
+    color: var(--muted);
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+  .item.open .item-chevron { transform: rotate(90deg); }
+  .item-options {
+    display: none;
+    padding: 4px 16px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .item.open .item-options { display: block; }
+  .option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .option-chip {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .option-chip:active { transform: scale(0.97); }
+  .option-chip.selected {
+    background: var(--accent);
+    color: #0a0a0a;
+    border-color: var(--accent);
+  }
+  .empty-state { font-size: 13px; color: var(--muted); padding: 10px 0; }
 </style>
 </head>
 <body>
 
-<div class="page">
-  <h1>BPM → ms</h1>
-  <div class="plan-meta" id="planMeta">loading plan…</div>
+<div class="layout">
 
-  <div class="cards" id="cards"></div>
+  <!-- LEFT: BPM tool -->
+  <div class="col col-left">
+    <h1>BPM → ms</h1>
+    <div class="plan-meta" id="planMeta">loading plan…</div>
 
-  <div class="panel">
-    <h2>Manual</h2>
-    <div class="field">
-      <label for="bpm">Tempo (BPM)</label>
-      <input type="number" id="bpm" value="120" min="1">
-    </div>
+    <div class="cards" id="cards"></div>
 
-    <div class="notes" id="notes">
-      <button data-n="16">1/16</button>
-      <button data-n="8">1/8</button>
-      <button data-n="6">1/6</button>
-      <button data-n="4" class="active">1/4</button>
-      <button data-n="2">1/2</button>
-      <button data-n="1">1</button>
-    </div>
+    <div class="panel">
+      <h2>Manual</h2>
+      <div class="field">
+        <label for="bpm">Tempo (BPM)</label>
+        <input type="number" id="bpm" value="120" min="1">
+      </div>
 
-    <div class="result">
-      <div class="value" id="ms">500</div>
-      <div class="unit">milliseconds</div>
+      <div class="notes-grid" id="notesGrid">
+        <button data-n="16">1/16</button>
+        <button data-n="8">1/8</button>
+        <button data-n="6">1/6</button>
+        <button data-n="4" class="active">1/4</button>
+        <button data-n="2">1/2</button>
+        <button data-n="1">1</button>
+      </div>
+
+      <div class="result">
+        <div class="value" id="ms">500</div>
+        <div class="unit">milliseconds</div>
+      </div>
     </div>
   </div>
+
+  <!-- RIGHT: Plan items / assignment notes -->
+  <div class="col col-right">
+    <h1>Plan Notes</h1>
+    <div class="plan-meta" id="itemsMeta">loading plan…</div>
+    <div class="items" id="items"></div>
+  </div>
+
 </div>
 
 <script>
+  // ---------- Shared state ----------
+  const OPTIONS = ['HH1', 'HH2', 'HH3', 'HH4', 'WL', 'Mac', 'LAV 1', 'LAV 2', 'LAV 3', 'Meredith', 'Billy'];
+  let n = 4;
+  let songs = [];
+  let items = [];
+  let planId = null;
+
+  // ---------- BPM calculator (left) ----------
   const bpmInput = document.getElementById('bpm');
-  const notesEl = document.getElementById('notes');
+  const notesGrid = document.getElementById('notesGrid');
   const msEl = document.getElementById('ms');
   const cardsEl = document.getElementById('cards');
   const planMeta = document.getElementById('planMeta');
-  let n = 4;
-  let songs = [];
 
   function msFor(bpm, noteN) {
     if (!bpm || bpm <= 0) return null;
     return (60000 / bpm) * (4 / noteN);
   }
-
   function fmt(ms) {
     if (ms === null) return '—';
     return ms % 1 === 0 ? ms.toString() : ms.toFixed(1);
   }
-
   function calc() {
     const bpm = parseFloat(bpmInput.value) || 0;
     msEl.textContent = fmt(msFor(bpm, n));
   }
-
   function renderCards() {
-    if (!songs.length) {
-      cardsEl.innerHTML = '';
-      return;
-    }
+    if (!songs.length) { cardsEl.innerHTML = ''; return; }
     cardsEl.innerHTML = songs.map((s, i) => `
       <div class="song-card" data-i="${i}">
-        ${s.art
-          ? `<img class="art" src="${s.art}" alt="">`
-          : `<div class="art">🎵</div>`}
+        ${s.art ? `<img class="art" src="${s.art}" alt="">` : `<div class="art">🎵</div>`}
         <div class="song-info">
           <div class="song-title">${s.title}</div>
           <div class="song-sub">${s.artist ? s.artist + ' · ' : ''}${s.bpm ? s.bpm + ' BPM' : '<span class="no-bpm">no BPM set</span>'}</div>
@@ -281,10 +373,10 @@
 
   bpmInput.addEventListener('input', calc);
 
-  notesEl.addEventListener('click', (e) => {
+  notesGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
     if (!btn) return;
-    notesEl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    notesGrid.querySelectorAll('button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     n = parseFloat(btn.dataset.n);
     calc();
@@ -297,13 +389,9 @@
     cardsEl.querySelectorAll('.song-card').forEach(c => c.classList.remove('active'));
     cardEl.classList.add('active');
     const song = songs[cardEl.dataset.i];
-    if (song.bpm) {
-      bpmInput.value = song.bpm;
-      calc();
-    }
+    if (song.bpm) { bpmInput.value = song.bpm; calc(); }
   });
 
-  // --- Look up artist + album art via the free iTunes Search API ---
   async function enrichSong(song) {
     try {
       const q = encodeURIComponent(song.title);
@@ -314,36 +402,108 @@
         song.artist = hit.artistName;
         song.art = hit.artworkUrl100 ? hit.artworkUrl100.replace('100x100bb', '300x300bb') : null;
       }
-    } catch (err) {
-      // silently skip — original worship songs often aren't on iTunes
-    }
+    } catch (err) { /* not on iTunes, skip */ }
   }
 
-  // --- Planning Center sync ---
+  // ---------- Plan item notes (right) ----------
+  const itemsEl = document.getElementById('items');
+  const itemsMeta = document.getElementById('itemsMeta');
+
+  function storageKey(itemId) {
+    return `pco-notes:${planId}:${itemId}`;
+  }
+  function getTags(itemId) {
+    try {
+      const raw = localStorage.getItem(storageKey(itemId));
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) { return []; }
+  }
+  function setTags(itemId, tags) {
+    localStorage.setItem(storageKey(itemId), JSON.stringify(tags));
+  }
+
+  function renderItems() {
+    if (!items.length) {
+      itemsEl.innerHTML = '<div class="empty-state">no plan items yet</div>';
+      return;
+    }
+    itemsEl.innerHTML = items.map((it) => {
+      const tags = getTags(it.id);
+      const typeLabel = it.type ? it.type.replace(/_/g, ' ') : 'item';
+      return `
+        <div class="item" data-id="${it.id}">
+          <div class="item-header">
+            <div class="item-type-dot ${it.type || ''}"></div>
+            <div class="item-main">
+              <div class="item-title">${it.title}</div>
+              <div class="item-type-label">${typeLabel}${it.bpm ? ' · ' + it.bpm + ' BPM' : ''}</div>
+              <div class="item-tags">${tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>
+            </div>
+            <div class="item-chevron">▶</div>
+          </div>
+          <div class="item-options">
+            <div class="option-grid">
+              ${OPTIONS.map(opt => `
+                <button class="option-chip ${tags.includes(opt) ? 'selected' : ''}" data-opt="${opt}">${opt}</button>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  itemsEl.addEventListener('click', (e) => {
+    const chip = e.target.closest('.option-chip');
+    const itemEl = e.target.closest('.item');
+    if (!itemEl) return;
+    const itemId = itemEl.dataset.id;
+
+    if (chip) {
+      e.stopPropagation();
+      const opt = chip.dataset.opt;
+      const tags = getTags(itemId);
+      const idx = tags.indexOf(opt);
+      if (idx >= 0) tags.splice(idx, 1); else tags.push(opt);
+      setTags(itemId, tags);
+      renderItems();
+      // keep this item open after re-render
+      const reopened = itemsEl.querySelector(`.item[data-id="${CSS.escape(itemId)}"]`);
+      if (reopened) reopened.classList.add('open');
+      return;
+    }
+
+    const header = e.target.closest('.item-header');
+    if (header) {
+      itemEl.classList.toggle('open');
+    }
+  });
+
+  // ---------- Load synced plan data ----------
   async function loadPlan() {
     try {
       const res = await fetch('data.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('no data.json yet');
       const data = await res.json();
 
-      if (!data.songs || data.songs.length === 0) {
-        planMeta.textContent = data.planTitle
-          ? `${data.planTitle} — no songs found`
-          : 'no upcoming plan found — enter BPM manually below';
-        return;
-      }
+      planId = data.planId || 'no-plan';
+      const label = data.planTitle
+        ? `${data.planTitle} · synced ${new Date(data.updated).toLocaleDateString()}`
+        : 'no upcoming plan found';
+      planMeta.textContent = label;
+      itemsMeta.textContent = label;
 
-      planMeta.textContent = `${data.planTitle || 'Next plan'} · synced ${new Date(data.updated).toLocaleDateString()}`;
-      songs = data.songs;
+      songs = data.songs || [];
+      items = data.items || data.songs || [];
+
       renderCards();
+      renderItems();
 
-      // Fetch art/artist in the background, render as each resolves
-      await Promise.all(songs.map(async (s) => {
-        await enrichSong(s);
-        renderCards();
-      }));
+      await Promise.all(songs.map(async (s) => { await enrichSong(s); renderCards(); }));
     } catch (err) {
       planMeta.textContent = 'no synced plan yet — enter BPM manually below';
+      itemsMeta.textContent = 'no synced plan yet';
+      planId = 'no-plan';
     }
   }
 
