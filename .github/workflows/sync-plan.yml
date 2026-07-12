@@ -1,1 +1,38 @@
+name: Sync Planning Center Plan
 
+on:
+  schedule:
+    # 11:00 UTC = 6:00 AM CDT (Mar–Nov) / 5:00 AM CST (Nov–Mar)
+    # GitHub Actions cron is fixed UTC and does not shift for daylight
+    # saving time. If you want it locked to 6:00 AM CST specifically,
+    # use '0 12 * * 0' instead (6:00 AM CST / 7:00 AM CDT).
+    - cron: '0 11 * * 0'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch next plan from Planning Center
+        env:
+          PCO_APP_ID: ${{ secrets.PCO_APP_ID }}
+          PCO_SECRET: ${{ secrets.PCO_SECRET }}
+          PCO_SERVICE_TYPE_ID: ${{ secrets.PCO_SERVICE_TYPE_ID }}
+        run: node scripts/sync-plan.mjs
+
+      - name: Commit updated data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "Sync plan $(date -u +%Y-%m-%d)"
+          git push
