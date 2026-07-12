@@ -427,11 +427,16 @@
       itemsEl.innerHTML = '<div class="empty-state">no plan items yet</div>';
       return;
     }
-    itemsEl.innerHTML = items.map((it) => {
-      const tags = getTags(it.id);
+    itemsEl.innerHTML = items.map((it, idx) => {
+      // Fallback to a positional id if the synced data is missing a real
+      // one, so items never accidentally share a storage key.
+      const itemId = (it.id !== undefined && it.id !== null && it.id !== '')
+        ? String(it.id)
+        : `idx-${idx}`;
+      const tags = getTags(itemId);
       const typeLabel = it.type ? it.type.replace(/_/g, ' ') : 'item';
       return `
-        <div class="item" data-id="${it.id}">
+        <div class="item" data-id="${itemId}">
           <div class="item-header">
             <div class="item-type-dot ${it.type || ''}"></div>
             <div class="item-main">
