@@ -1,17 +1,128 @@
 {
-  "updated": "2026-07-12T16:18:56.070Z",
+  "updated": "2026-07-12T16:25:43.481Z",
+  "planId": "87521778",
   "planTitle": "Chapter Isaiah 60:1-22",
   "planDate": "2026-07-12T08:00:00Z",
-  "songs": [
+  "items": [
     {
+      "id": "1177746095",
+      "type": "header",
+      "title": "PRE-SERVICE",
+      "bpm": null
+    },
+    {
+      "id": "1177746096",
+      "type": "item",
+      "title": "Pre-Roll",
+      "bpm": null
+    },
+    {
+      "id": "1177746097",
+      "type": "item",
+      "title": "5 Minute Countdown",
+      "bpm": null
+    },
+    {
+      "id": "1177746098",
+      "type": "header",
+      "title": "Beginning of Service /  Song Set",
+      "bpm": null
+    },
+    {
+      "id": "1177746099",
+      "type": "item",
+      "title": "Welcome",
+      "bpm": null
+    },
+    {
+      "id": "1177746100",
+      "type": "song",
       "title": "Look At What The Blood Has Done (Live)",
       "bpm": 140
     },
     {
+      "id": "1212532591",
+      "type": "song",
       "title": "No Body",
       "bpm": 67
     },
     {
+      "id": "1177746102",
+      "type": "song",
+      "title": "Holy Spirit",
+      "bpm": 72
+    },
+    {
+      "id": "1177746104",
+      "type": "item",
+      "title": "Prayer + Commissioning",
+      "bpm": null
+    },
+    {
+      "id": "1177746118",
+      "type": "header",
+      "title": "Sermon",
+      "bpm": null
+    },
+    {
+      "id": "1216387511",
+      "type": "item",
+      "title": "Bumper",
+      "bpm": null
+    },
+    {
+      "id": "1177746121",
+      "type": "item",
+      "title": "Message",
+      "bpm": null
+    },
+    {
+      "id": "1177746122",
+      "type": "header",
+      "title": "Closing / Send Out",
+      "bpm": null
+    },
+    {
+      "id": "1177746123",
+      "type": "item",
+      "title": "Closing",
+      "bpm": null
+    },
+    {
+      "id": "1177746124",
+      "type": "item",
+      "title": "Sending Out Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1177746125",
+      "type": "header",
+      "title": "Post-Service",
+      "bpm": null
+    },
+    {
+      "id": "1177746126",
+      "type": "item",
+      "title": "Post-Roll",
+      "bpm": null
+    }
+  ],
+  "songs": [
+    {
+      "id": "1177746100",
+      "type": "song",
+      "title": "Look At What The Blood Has Done (Live)",
+      "bpm": 140
+    },
+    {
+      "id": "1212532591",
+      "type": "song",
+      "title": "No Body",
+      "bpm": 67
+    },
+    {
+      "id": "1177746102",
+      "type": "song",
       "title": "Holy Spirit",
       "bpm": 72
     }
