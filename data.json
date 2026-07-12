@@ -1,6 +1,19 @@
 {
-  "updated": null,
-  "planTitle": null,
-  "planDate": null,
-  "songs": []
+  "updated": "2026-07-12T15:39:05.991Z",
+  "planTitle": "Chapter Isaiah 60:1-22",
+  "planDate": "2026-07-12T08:00:00Z",
+  "songs": [
+    {
+      "title": "Look At What The Blood Has Done (Live)",
+      "bpm": 140
+    },
+    {
+      "title": "No Body",
+      "bpm": 67
+    },
+    {
+      "title": "Holy Spirit",
+      "bpm": 72
+    }
+  ]
 }
