@@ -28,17 +28,23 @@
   .layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    align-items: start;
   }
   @media (max-width: 860px) {
     .layout { grid-template-columns: 1fr; }
     .col { border-right: none !important; border-bottom: 1px solid var(--border); }
+    .col-left { position: static !important; max-height: none !important; }
   }
   .col {
     padding: 28px 22px 60px;
+  }
+  .col-left {
+    border-right: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
     overflow-y: auto;
   }
-  .col-left { border-right: 1px solid var(--border); }
 
   h1 {
     font-size: 13px;
