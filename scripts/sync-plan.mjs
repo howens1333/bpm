@@ -47,9 +47,10 @@ async function main() {
     return;
   }
 
-  // 2. Get the plan's items, including song + arrangement data (for BPM).
+  // 2. Get ALL of the plan's items (songs, headers, media, etc.), including
+  //    song + arrangement data for BPM where it applies.
   const itemsRes = await pco(
-    `/services/v2/service_types/${SERVICE_TYPE_ID}/plans/${plan.id}/items?include=song,arrangement&per_page=100`
+    `/services/v2/service_types/${SERVICE_TYPE_ID}/plans/${plan.id}/items?include=song,arrangement&per_page=200&order=sequence`
   );
 
   const included = itemsRes.included || [];
@@ -57,25 +58,30 @@ async function main() {
     included.filter((i) => i.type === 'Arrangement').map((a) => [a.id, a])
   );
 
-  const songs = itemsRes.data
-    .filter((item) => item.attributes.item_type === 'song')
-    .map((item) => {
-      const arrId = item.relationships?.arrangement?.data?.id;
-      const arrangement = arrId ? arrangementsById[arrId] : null;
-      const bpm = arrangement?.attributes?.bpm;
-      return {
-        title: item.attributes.title,
-        bpm: bpm ? Number(bpm) : null,
-      };
-    });
+  const items = itemsRes.data.map((item) => {
+    const isSong = item.attributes.item_type === 'song';
+    const arrId = isSong ? item.relationships?.arrangement?.data?.id : null;
+    const arrangement = arrId ? arrangementsById[arrId] : null;
+    const bpm = arrangement?.attributes?.bpm;
+    return {
+      id: item.id,
+      type: item.attributes.item_type, // "song", "header", "media", "other", ...
+      title: item.attributes.title,
+      bpm: bpm ? Number(bpm) : null,
+    };
+  });
+
+  const songs = items.filter((i) => i.type === 'song');
 
   fs.writeFileSync(
     'data.json',
     JSON.stringify(
       {
         updated: new Date().toISOString(),
+        planId: plan.id,
         planTitle: plan.attributes.title || plan.attributes.dates || null,
         planDate: plan.attributes.sort_date || null,
+        items,
         songs,
       },
       null,
@@ -83,7 +89,7 @@ async function main() {
     )
   );
 
-  console.log(`Synced ${songs.length} song(s) from plan "${plan.attributes.title}".`);
+  console.log(`Synced ${items.length} item(s) (${songs.length} songs) from plan "${plan.attributes.title}".`);
 }
 
 main().catch((err) => {
