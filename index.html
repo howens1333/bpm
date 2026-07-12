@@ -187,56 +187,83 @@
 
   /* --- Plan items / notes (right) --- */
   .items {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .item {
-    background: var(--card);
+    background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 14px;
     overflow: hidden;
   }
-  .item-header {
+
+  /* Header rows — full-width section dividers, like PCO's gray bars */
+  .row-header-bar {
+    padding: 12px 18px;
+    background: #232326;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    cursor: pointer;
+    justify-content: space-between;
+    gap: 10px;
   }
-  .item-header:hover { background: var(--card-hover); }
-  .item-type-dot {
-    width: 8px;
-    height: 8px;
+  .row-header-bar:hover { color: var(--text); }
+
+  /* Regular rows — songs and plain items, table-like */
+  .item-row {
+    border-bottom: 1px solid var(--border);
+  }
+  .item-row:last-child { border-bottom: none; }
+  .row-main {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 18px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+  }
+  .row-main:hover { background: var(--card-hover); }
+  .item-row.is-song .row-main { border-left-color: var(--accent); }
+
+  .row-badge {
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     flex-shrink: 0;
-    background: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
   }
-  .item-type-dot.song { background: var(--accent); }
-  .item-type-dot.header { background: #6f9ceb; }
-  .item-type-dot.media { background: #d98a5f; }
-  .item-main { flex: 1; min-width: 0; }
-  .item-title {
+
+  .row-text { flex: 1; min-width: 0; }
+  .row-title {
     font-size: 15px;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .item-type-label {
-    font-size: 11px;
+  .item-row.is-song .row-title { color: var(--accent); }
+  .row-sub {
+    font-size: 13px;
     color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top: 2px;
   }
-  .item-tags {
+  .row-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-top: 6px;
   }
-  .item-tag {
+  .row-tag {
     font-size: 11px;
     font-weight: 600;
     background: var(--accent-dim);
@@ -244,19 +271,21 @@
     padding: 3px 8px;
     border-radius: 20px;
   }
-  .item-chevron {
+  .row-chevron {
     color: var(--muted);
     font-size: 12px;
     flex-shrink: 0;
     transition: transform 0.15s ease;
   }
-  .item.open .item-chevron { transform: rotate(90deg); }
-  .item-options {
+  .item-row.open .row-chevron,
+  .row-header-bar.open .row-chevron { transform: rotate(90deg); }
+
+  .row-options {
     display: none;
-    padding: 4px 16px 16px;
-    border-top: 1px solid var(--border);
+    padding: 4px 18px 16px;
+    background: var(--bg);
   }
-  .item.open .item-options { display: block; }
+  .item-row.open .row-options { display: block; }
   .option-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -264,7 +293,7 @@
     margin-top: 12px;
   }
   .option-chip {
-    background: var(--bg);
+    background: var(--card);
     border: 1px solid var(--border);
     color: var(--text);
     font-family: inherit;
@@ -281,7 +310,7 @@
     color: #0a0a0a;
     border-color: var(--accent);
   }
-  .empty-state { font-size: 13px; color: var(--muted); padding: 10px 0; }
+  .empty-state { font-size: 13px; color: var(--muted); padding: 16px 18px; }
 </style>
 </head>
 <body>
@@ -422,6 +451,14 @@
     localStorage.setItem(storageKey(itemId), JSON.stringify(tags));
   }
 
+  // A small rotating palette for song initial badges (PCO-style colored circles)
+  const BADGE_COLORS = ['#3b6fd1', '#5aa66b', '#c4823a', '#a15dc9', '#3ba3a3', '#c15a7a'];
+  function badgeColor(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+    return BADGE_COLORS[hash % BADGE_COLORS.length];
+  }
+
   function renderItems() {
     if (!items.length) {
       itemsEl.innerHTML = '<div class="empty-state">no plan items yet</div>';
@@ -434,25 +471,50 @@
         ? String(it.id)
         : `idx-${idx}`;
       const tags = getTags(itemId);
-      const typeLabel = it.type ? it.type.replace(/_/g, ' ') : 'item';
+      const isHeader = it.type === 'header';
+      const isSong = it.type === 'song';
+
+      const optionsHtml = `
+        <div class="row-options">
+          <div class="option-grid">
+            ${OPTIONS.map(opt => `
+              <button class="option-chip ${tags.includes(opt) ? 'selected' : ''}" data-opt="${opt}">${opt}</button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      if (isHeader) {
+        return `
+          <div class="item-row" data-id="${itemId}" data-kind="header">
+            <div class="row-header-bar">
+              <span>${it.title}</span>
+              <span class="row-chevron">▶</span>
+            </div>
+            ${optionsHtml}
+          </div>
+        `;
+      }
+
+      const sub = isSong
+        ? `${it.artist ? it.artist + ' · ' : ''}${it.bpm ? it.bpm + ' BPM' : 'no BPM set'}`
+        : '';
+      const badge = isSong
+        ? `<div class="row-badge" style="background:${badgeColor(it.title || '')}">${(it.title || '?').trim().charAt(0).toUpperCase()}</div>`
+        : '';
+
       return `
-        <div class="item" data-id="${itemId}">
-          <div class="item-header">
-            <div class="item-type-dot ${it.type || ''}"></div>
-            <div class="item-main">
-              <div class="item-title">${it.title}</div>
-              <div class="item-type-label">${typeLabel}${it.bpm ? ' · ' + it.bpm + ' BPM' : ''}</div>
-              <div class="item-tags">${tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>
+        <div class="item-row ${isSong ? 'is-song' : ''}" data-id="${itemId}">
+          <div class="row-main">
+            ${badge}
+            <div class="row-text">
+              <div class="row-title">${it.title}</div>
+              ${sub ? `<div class="row-sub">${sub}</div>` : ''}
+              <div class="row-tags">${tags.map(t => `<span class="row-tag">${t}</span>`).join('')}</div>
             </div>
-            <div class="item-chevron">▶</div>
+            <div class="row-chevron">▶</div>
           </div>
-          <div class="item-options">
-            <div class="option-grid">
-              ${OPTIONS.map(opt => `
-                <button class="option-chip ${tags.includes(opt) ? 'selected' : ''}" data-opt="${opt}">${opt}</button>
-              `).join('')}
-            </div>
-          </div>
+          ${optionsHtml}
         </div>
       `;
     }).join('');
@@ -460,9 +522,9 @@
 
   itemsEl.addEventListener('click', (e) => {
     const chip = e.target.closest('.option-chip');
-    const itemEl = e.target.closest('.item');
-    if (!itemEl) return;
-    const itemId = itemEl.dataset.id;
+    const rowEl = e.target.closest('.item-row');
+    if (!rowEl) return;
+    const itemId = rowEl.dataset.id;
 
     if (chip) {
       e.stopPropagation();
@@ -472,15 +534,14 @@
       if (idx >= 0) tags.splice(idx, 1); else tags.push(opt);
       setTags(itemId, tags);
       renderItems();
-      // keep this item open after re-render
-      const reopened = itemsEl.querySelector(`.item[data-id="${CSS.escape(itemId)}"]`);
+      const reopened = itemsEl.querySelector(`.item-row[data-id="${CSS.escape(itemId)}"]`);
       if (reopened) reopened.classList.add('open');
       return;
     }
 
-    const header = e.target.closest('.item-header');
-    if (header) {
-      itemEl.classList.toggle('open');
+    const toggleTarget = e.target.closest('.row-main') || e.target.closest('.row-header-bar');
+    if (toggleTarget) {
+      rowEl.classList.toggle('open');
     }
   });
 
