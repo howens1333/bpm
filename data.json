@@ -1,107 +1,125 @@
 {
-  "updated": "2026-07-12T16:25:43.481Z",
-  "planId": "87521778",
-  "planTitle": "Chapter Isaiah 60:1-22",
-  "planDate": "2026-07-12T08:00:00Z",
+  "updated": "2026-07-19T12:00:22.427Z",
+  "planId": "87521779",
+  "planTitle": "Chapter 61:1-11",
+  "planDate": "2026-07-19T08:00:00Z",
   "items": [
     {
-      "id": "1177746095",
+      "id": "1177746135",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1177746096",
+      "id": "1177746140",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1177746097",
+      "id": "1177746145",
       "type": "item",
       "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1177746098",
+      "id": "1177746157",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1177746099",
+      "id": "1177746185",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1177746100",
+      "id": "1177746188",
       "type": "song",
-      "title": "Look At What The Blood Has Done (Live)",
-      "bpm": 140
+      "title": "The King Is In The Room",
+      "bpm": 98
     },
     {
-      "id": "1212532591",
+      "id": "1177746193",
       "type": "song",
-      "title": "No Body",
-      "bpm": 67
-    },
-    {
-      "id": "1177746102",
-      "type": "song",
-      "title": "Holy Spirit",
+      "title": "Mighty Name Of Jesus",
       "bpm": 72
     },
     {
-      "id": "1177746104",
+      "id": "1177746195",
+      "type": "song",
+      "title": "Same God",
+      "bpm": 72.5
+    },
+    {
+      "id": "1177746217",
+      "type": "item",
+      "title": "Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1216505545",
+      "type": "header",
+      "title": "Prayer Moment",
+      "bpm": null
+    },
+    {
+      "id": "1216505835",
+      "type": "item",
+      "title": "Mission Trip Focus",
+      "bpm": null
+    },
+    {
+      "id": "1177746200",
       "type": "item",
       "title": "Prayer + Commissioning",
       "bpm": null
     },
     {
-      "id": "1177746118",
+      "id": "1177746240",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1216387511",
+      "id": "1177746260",
       "type": "item",
-      "title": "Bumper",
+      "title": "Video: Bumper",
       "bpm": null
     },
     {
-      "id": "1177746121",
+      "id": "1177746275",
       "type": "item",
-      "title": "Message",
+      "title": "Message:",
       "bpm": null
     },
     {
-      "id": "1177746122",
+      "id": "1177746289",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1177746123",
+      "id": "1177746296",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1177746124",
+      "id": "1177746301",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1177746125",
+      "id": "1177746312",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1177746126",
+      "id": "1177746326",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -109,22 +127,22 @@
   ],
   "songs": [
     {
-      "id": "1177746100",
+      "id": "1177746188",
       "type": "song",
-      "title": "Look At What The Blood Has Done (Live)",
-      "bpm": 140
+      "title": "The King Is In The Room",
+      "bpm": 98
     },
     {
-      "id": "1212532591",
+      "id": "1177746193",
       "type": "song",
-      "title": "No Body",
-      "bpm": 67
-    },
-    {
-      "id": "1177746102",
-      "type": "song",
-      "title": "Holy Spirit",
+      "title": "Mighty Name Of Jesus",
       "bpm": 72
+    },
+    {
+      "id": "1177746195",
+      "type": "song",
+      "title": "Same God",
+      "bpm": 72.5
     }
   ]
 }
