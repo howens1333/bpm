@@ -394,6 +394,52 @@
   .topnav-status.err { color: var(--warn); }
   .topnav-status.ok { color: var(--accent); }
 
+  /* --- Toasts --- */
+  .toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 340px;
+  }
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--muted);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    animation: toast-in 0.2s ease;
+  }
+  .toast.ok { border-left-color: var(--accent); }
+  .toast.err { border-left-color: var(--warn); }
+  .toast-msg { flex: 1; line-height: 1.4; }
+  .toast-close {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .toast-close:hover { color: var(--text); }
+  .toast.leaving { animation: toast-out 0.15s ease forwards; }
+  @keyframes toast-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes toast-out { to { opacity: 0; transform: translateY(6px); } }
+  @media (max-width: 860px) {
+    .toast-container { left: 14px; right: 14px; bottom: 14px; max-width: none; }
+  }
+
   @media (max-width: 860px) {
     .topnav {
       flex-direction: column;
@@ -433,6 +479,8 @@
   </div>
 </div>
 <div class="topnav-status" id="refreshStatus"></div>
+
+<div class="toast-container" id="toastContainer"></div>
 
 <div class="layout">
 
@@ -699,6 +747,27 @@
     refreshStatus.textContent = msg;
     refreshStatus.className = 'topnav-status' + (kind ? ' ' + kind : '');
   }
+  const toastContainer = document.getElementById('toastContainer');
+  function showToast(message, kind) {
+    const el = document.createElement('div');
+    el.className = 'toast' + (kind ? ' ' + kind : '');
+    const msgEl = document.createElement('div');
+    msgEl.className = 'toast-msg';
+    msgEl.textContent = message;
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'toast-close';
+    closeBtn.setAttribute('aria-label', 'Dismiss');
+    closeBtn.textContent = '×';
+    el.appendChild(msgEl);
+    el.appendChild(closeBtn);
+    const remove = () => {
+      el.classList.add('leaving');
+      setTimeout(() => el.remove(), 150);
+    };
+    closeBtn.addEventListener('click', remove);
+    toastContainer.appendChild(el);
+    setTimeout(remove, 6000);
+  }
   function setBusy(busy, label) {
     refreshBtn.disabled = busy;
     refreshBtn.classList.toggle('spinning', busy);
@@ -733,12 +802,12 @@
 
   async function runRefresh() {
     if (!WORKER_URL || WORKER_URL.startsWith('REPLACE_WITH')) {
-      setStatus('Worker URL not configured yet — see setup instructions', 'err');
+      showToast('Worker URL not configured yet — see setup instructions.', 'err');
       return;
     }
 
     setBusy(true, 'Starting…');
-    setStatus('triggering GitHub Actions…');
+    setStatus('Triggering GitHub Actions…');
 
     const triggeredAt = Date.now() - 5000; // small buffer for clock skew
 
@@ -746,7 +815,8 @@
       await dispatchWorkflow();
     } catch (err) {
       setBusy(false);
-      setStatus('failed to start: ' + err.message, 'err');
+      setStatus('');
+      showToast('Failed to start: ' + err.message, 'err');
       return;
     }
 
@@ -758,14 +828,16 @@
         run = await findRunAfter(triggeredAt);
       } catch (err) {
         setBusy(false);
-        setStatus('could not check run status: ' + err.message, 'err');
+        setStatus('');
+        showToast('Could not check run status: ' + err.message, 'err');
         return;
       }
     }
 
     if (!run) {
       setBusy(false);
-      setStatus('triggered, but could not confirm the run — check GitHub Actions tab', '');
+      setStatus('');
+      showToast('Triggered, but could not confirm the run — check the GitHub Actions tab.', '');
       return;
     }
 
@@ -776,17 +848,20 @@
         latest = await pollRun(run.id);
       } catch (err) {
         setBusy(false);
-        setStatus('could not check run status: ' + err.message, 'err');
+        setStatus('');
+        showToast('Could not check run status: ' + err.message, 'err');
         return;
       }
       if (latest.status === 'completed') {
         setBusy(false, 'Refresh');
         if (latest.conclusion === 'success') {
-          setStatus('synced — reloading…', 'ok');
+          setStatus('Synced — reloading…', 'ok');
           await loadPlan();
-          setStatus('plan up to date', 'ok');
+          setStatus('');
+          showToast('Plan up to date', 'ok');
         } else {
-          setStatus(`run finished with "${latest.conclusion}" — check Actions tab`, 'err');
+          setStatus('');
+          showToast(`Run finished with "${latest.conclusion}" — check the Actions tab.`, 'err');
         }
         return;
       }
@@ -794,7 +869,8 @@
     }
 
     setBusy(false);
-    setStatus('still running on GitHub — check back shortly', '');
+    setStatus('');
+    showToast('Still running on GitHub — check back shortly.', '');
   }
 
   refreshBtn.addEventListener('click', runRefresh);
