@@ -6,7 +6,7 @@ on:
     # GitHub Actions cron is fixed UTC and does not shift for daylight
     # saving time. If you want it locked to 6:00 AM CST specifically,
     # use '0 12 * * 0' instead (6:00 AM CST / 7:00 AM CDT).
-    - cron: '0 11 * * 0'
+    - cron: '7 10 * * 0'
   workflow_dispatch: {}
 
 permissions:
