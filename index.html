@@ -323,9 +323,32 @@
     border-color: var(--pad-accent);
   }
   .empty-state { font-size: 13px; color: var(--muted); padding: 16px 18px; }
+
+  /* --- Spotify chip (top) --- */
+  .spotify-bar {
+    padding: 10px 14px 0;
+  }
+  .spotify-bar iframe {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    border-radius: 12px;
+    display: block;
+  }
 </style>
 </head>
 <body>
+
+<div class="spotify-bar">
+  <iframe
+    src="https://open.spotify.com/embed/playlist/3FqVNYsZJ46emZw31mhtcM?utm_source=generator&theme=0"
+    height="152"
+    frameborder="0"
+    allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
 
 <div class="layout">
 
