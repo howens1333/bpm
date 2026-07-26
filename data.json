@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T12:04:32.293Z",
+  "updated": "2026-07-26T16:21:31.698Z",
   "planId": "89617699",
   "planTitle": "“God Won’t Give You More Than You Can Handle”",
   "planDate": "2026-07-26T08:00:00Z",
@@ -51,36 +51,6 @@
       "type": "song",
       "title": "Who Else",
       "bpm": 68
-    },
-    {
-      "id": "1206265603",
-      "type": "item",
-      "title": "Prayer",
-      "bpm": null
-    },
-    {
-      "id": "1206265604",
-      "type": "header",
-      "title": "Connect Moment",
-      "bpm": null
-    },
-    {
-      "id": "1206265605",
-      "type": "item",
-      "title": "Connect Moment",
-      "bpm": null
-    },
-    {
-      "id": "1206265606",
-      "type": "item",
-      "title": "3 Ways To Give",
-      "bpm": null
-    },
-    {
-      "id": "1206265607",
-      "type": "item",
-      "title": "Mission of the Week",
-      "bpm": null
     },
     {
       "id": "1206265608",
