@@ -1,125 +1,137 @@
 {
-  "updated": "2026-07-19T12:00:22.427Z",
-  "planId": "87521779",
-  "planTitle": "Chapter 61:1-11",
-  "planDate": "2026-07-19T08:00:00Z",
+  "updated": "2026-07-26T11:46:15.711Z",
+  "planId": "89617699",
+  "planTitle": "“God Won’t Give You More Than You Can Handle”",
+  "planDate": "2026-07-26T08:00:00Z",
   "items": [
     {
-      "id": "1177746135",
+      "id": "1206265593",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1177746140",
+      "id": "1206265594",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1177746145",
+      "id": "1206265596",
       "type": "item",
       "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1177746157",
+      "id": "1206265597",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1177746185",
+      "id": "1206265598",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1177746188",
+      "id": "1206265599",
       "type": "song",
-      "title": "The King Is In The Room",
-      "bpm": 98
+      "title": "Can't Help But Praise (Live)",
+      "bpm": 125
     },
     {
-      "id": "1177746193",
+      "id": "1206265601",
       "type": "song",
-      "title": "Mighty Name Of Jesus",
-      "bpm": 72
+      "title": "I Believe",
+      "bpm": 81
     },
     {
-      "id": "1177746195",
+      "id": "1206265602",
       "type": "song",
-      "title": "Same God",
-      "bpm": 72.5
+      "title": "Who Else",
+      "bpm": 68
     },
     {
-      "id": "1177746217",
+      "id": "1206265603",
       "type": "item",
       "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1216505545",
+      "id": "1206265604",
       "type": "header",
-      "title": "Prayer Moment",
+      "title": "Connect Moment",
       "bpm": null
     },
     {
-      "id": "1216505835",
+      "id": "1206265605",
       "type": "item",
-      "title": "Mission Trip Focus",
+      "title": "Connect Moment",
       "bpm": null
     },
     {
-      "id": "1177746200",
+      "id": "1206265606",
       "type": "item",
-      "title": "Prayer + Commissioning",
+      "title": "3 Ways To Give",
       "bpm": null
     },
     {
-      "id": "1177746240",
+      "id": "1206265607",
+      "type": "item",
+      "title": "Mission of the Week",
+      "bpm": null
+    },
+    {
+      "id": "1206265608",
+      "type": "item",
+      "title": "Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1206265610",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1177746260",
+      "id": "1214576300",
       "type": "item",
-      "title": "Video: Bumper",
+      "title": "Meet & Greet Time",
       "bpm": null
     },
     {
-      "id": "1177746275",
+      "id": "1206265612",
       "type": "item",
-      "title": "Message:",
+      "title": "Message",
       "bpm": null
     },
     {
-      "id": "1177746289",
+      "id": "1206265613",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1177746296",
+      "id": "1206265614",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1177746301",
+      "id": "1206265615",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1177746312",
+      "id": "1206265616",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1177746326",
+      "id": "1206265618",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -127,22 +139,22 @@
   ],
   "songs": [
     {
-      "id": "1177746188",
+      "id": "1206265599",
       "type": "song",
-      "title": "The King Is In The Room",
-      "bpm": 98
+      "title": "Can't Help But Praise (Live)",
+      "bpm": 125
     },
     {
-      "id": "1177746193",
+      "id": "1206265601",
       "type": "song",
-      "title": "Mighty Name Of Jesus",
-      "bpm": 72
+      "title": "I Believe",
+      "bpm": 81
     },
     {
-      "id": "1177746195",
+      "id": "1206265602",
       "type": "song",
-      "title": "Same God",
-      "bpm": 72.5
+      "title": "Who Else",
+      "bpm": 68
     }
   ]
 }
