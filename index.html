@@ -423,8 +423,9 @@
   const GH_OWNER = 'howens1333';
   const GH_REPO = 'bpm';
   const GH_WORKFLOW_FILE = 'sync-plan.yml';
-  const GH_BRANCH = 'main';
-  const GH_TOKEN_KEY = 'gh-pat-bpm';
+  // Paste your deployed Cloudflare Worker URL here once it's live, e.g.
+  // 'https://bpm-refresh.yourname.workers.dev'
+  const WORKER_URL = 'REPLACE_WITH_YOUR_WORKER_URL';
 
   // ---------- BPM calculator (left) ----------
   const bpmInput = document.getElementById('bpm');
@@ -635,28 +636,6 @@
   const refreshBtnLabel = document.getElementById('refreshBtnLabel');
   const refreshStatus = document.getElementById('refreshStatus');
 
-  function getStoredToken() {
-    return localStorage.getItem(GH_TOKEN_KEY) || '';
-  }
-  function promptForToken() {
-    const t = window.prompt(
-      'Paste a GitHub fine-grained personal access token, scoped to only ' +
-      GH_OWNER + '/' + GH_REPO + ' with "Actions: Read and write" permission.\n\n' +
-      'It will be saved in this browser only (localStorage) and reused next time.'
-    );
-    if (t && t.trim()) {
-      localStorage.setItem(GH_TOKEN_KEY, t.trim());
-      return t.trim();
-    }
-    return '';
-  }
-  function ghHeaders(token) {
-    return {
-      'Authorization': 'Bearer ' + token,
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28'
-    };
-  }
   function setStatus(msg, kind) {
     refreshStatus.textContent = msg;
     refreshStatus.className = 'refresh-status' + (kind ? ' ' + kind : '');
@@ -668,46 +647,36 @@
   }
   function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-  async function dispatchWorkflow(token) {
-    const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW_FILE}/dispatches`;
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: ghHeaders(token),
-      body: JSON.stringify({ ref: GH_BRANCH })
-    });
-    if (res.status === 401 || res.status === 403) {
-      const body = await res.text();
-      throw new Error(`auth-failed:${res.status}:${body}`);
-    }
-    if (res.status === 404) {
-      throw new Error('not-found');
-    }
+  async function dispatchWorkflow() {
+    const res = await fetch(WORKER_URL, { method: 'POST' });
     if (!res.ok) {
-      throw new Error(`dispatch-failed:${res.status}`);
+      const body = await res.text().catch(() => '');
+      throw new Error(`dispatch-failed:${res.status}:${body}`);
     }
-    // 204 No Content, no run id returned — caller finds the run by polling the list.
   }
 
-  async function findRunAfter(token, sinceIso) {
+  // Public, unauthenticated reads — fine for a public repo at this low volume.
+  async function findRunAfter(sinceMs) {
     const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW_FILE}/runs?event=workflow_dispatch&per_page=5`;
-    const res = await fetch(url, { headers: ghHeaders(token) });
+    const res = await fetch(url);
     if (!res.ok) throw new Error(`list-failed:${res.status}`);
     const data = await res.json();
     const runs = data.workflow_runs || [];
-    return runs.find(r => new Date(r.created_at).getTime() >= sinceIso) || null;
+    return runs.find(r => new Date(r.created_at).getTime() >= sinceMs) || null;
   }
 
-  async function pollRun(token, runId) {
+  async function pollRun(runId) {
     const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/runs/${runId}`;
-    const res = await fetch(url, { headers: ghHeaders(token) });
+    const res = await fetch(url);
     if (!res.ok) throw new Error(`run-check-failed:${res.status}`);
     return res.json();
   }
 
   async function runRefresh() {
-    let token = getStoredToken();
-    if (!token) token = promptForToken();
-    if (!token) { setStatus('cancelled — no token entered', 'err'); return; }
+    if (!WORKER_URL || WORKER_URL.startsWith('REPLACE_WITH')) {
+      setStatus('Worker URL not configured yet — see setup instructions', 'err');
+      return;
+    }
 
     setBusy(true, 'Starting…');
     setStatus('triggering GitHub Actions…');
@@ -715,27 +684,19 @@
     const triggeredAt = Date.now() - 5000; // small buffer for clock skew
 
     try {
-      await dispatchWorkflow(token);
+      await dispatchWorkflow();
     } catch (err) {
       setBusy(false);
-      if (String(err.message).startsWith('auth-failed')) {
-        localStorage.removeItem(GH_TOKEN_KEY);
-        setStatus('token rejected — removed, click Refresh to re-enter it', 'err');
-      } else if (String(err.message) === 'not-found') {
-        setStatus('workflow not found — check repo/branch/file name', 'err');
-      } else {
-        setStatus('failed to start: ' + err.message, 'err');
-      }
+      setStatus('failed to start: ' + err.message, 'err');
       return;
     }
 
-    // Give GitHub a moment to register the queued run, then find it.
     setBusy(true, 'Waiting for run…');
     let run = null;
     for (let i = 0; i < 10 && !run; i++) {
       await sleep(1500);
       try {
-        run = await findRunAfter(token, triggeredAt);
+        run = await findRunAfter(triggeredAt);
       } catch (err) {
         setBusy(false);
         setStatus('could not check run status: ' + err.message, 'err');
@@ -750,11 +711,10 @@
     }
 
     setBusy(true, 'Syncing…');
-    // Poll until the run completes (cap ~2 minutes).
     for (let i = 0; i < 40; i++) {
       let latest;
       try {
-        latest = await pollRun(token, run.id);
+        latest = await pollRun(run.id);
       } catch (err) {
         setBusy(false);
         setStatus('could not check run status: ' + err.message, 'err');
