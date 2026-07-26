@@ -425,7 +425,7 @@
   const GH_WORKFLOW_FILE = 'sync-plan.yml';
   // Paste your deployed Cloudflare Worker URL here once it's live, e.g.
   // 'https://bpm-refresh.yourname.workers.dev'
-  const WORKER_URL = 'https://round-wind-1488.nathanielscotthowe.workers.dev/';
+  const WORKER_URL = 'REPLACE_WITH_YOUR_WORKER_URL';
 
   // ---------- BPM calculator (left) ----------
   const bpmInput = document.getElementById('bpm');
@@ -657,8 +657,8 @@
 
   // Public, unauthenticated reads — fine for a public repo at this low volume.
   async function findRunAfter(sinceMs) {
-    const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW_FILE}/runs?event=workflow_dispatch&per_page=5`;
-    const res = await fetch(url);
+    const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW_FILE}/runs?event=workflow_dispatch&per_page=5&_=${Date.now()}`;
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`list-failed:${res.status}`);
     const data = await res.json();
     const runs = data.workflow_runs || [];
@@ -666,8 +666,8 @@
   }
 
   async function pollRun(runId) {
-    const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/runs/${runId}`;
-    const res = await fetch(url);
+    const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/runs/${runId}?_=${Date.now()}`;
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`run-check-failed:${res.status}`);
     return res.json();
   }
@@ -693,8 +693,8 @@
 
     setBusy(true, 'Waiting for run…');
     let run = null;
-    for (let i = 0; i < 10 && !run; i++) {
-      await sleep(1500);
+    for (let i = 0; i < 16 && !run; i++) {
+      await sleep(2000);
       try {
         run = await findRunAfter(triggeredAt);
       } catch (err) {
