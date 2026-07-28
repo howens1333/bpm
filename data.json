@@ -1,107 +1,149 @@
 {
-  "updated": "2026-07-26T17:00:39.637Z",
-  "planId": "89617699",
-  "planTitle": "“God Won’t Give You More Than You Can Handle”",
-  "planDate": "2026-07-26T08:00:00Z",
+  "updated": "2026-07-28T02:43:26.489Z",
+  "planId": "89617720",
+  "planTitle": "“For I Know the Plans I Have For You”",
+  "planDate": "2026-08-02T08:00:00Z",
   "items": [
     {
-      "id": "1206265593",
+      "id": "1206265962",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1206265594",
+      "id": "1206265963",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1206265596",
+      "id": "1206265965",
       "type": "item",
       "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1206265597",
+      "id": "1206265967",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1206265598",
+      "id": "1206265968",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1206265599",
+      "id": "1206265970",
       "type": "song",
-      "title": "Can't Help But Praise (Live)",
-      "bpm": 125
+      "title": "Take You At Your Word",
+      "bpm": 171.5
     },
     {
-      "id": "1206265601",
+      "id": "1218890707",
       "type": "song",
-      "title": "I Believe",
-      "bpm": 81
+      "title": "Good Plans",
+      "bpm": 67
     },
     {
-      "id": "1206265602",
+      "id": "1206265975",
       "type": "song",
-      "title": "Who Else",
-      "bpm": 68
+      "title": "Goodness Of God",
+      "bpm": 63
     },
     {
-      "id": "1206265608",
+      "id": "1206265977",
       "type": "item",
       "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1206265610",
+      "id": "1206265978",
+      "type": "header",
+      "title": "Prayer Connect Moment",
+      "bpm": null
+    },
+    {
+      "id": "1206265979",
+      "type": "item",
+      "title": "Connect Moment",
+      "bpm": null
+    },
+    {
+      "id": "1206265982",
+      "type": "item",
+      "title": "Mission of the Week",
+      "bpm": null
+    },
+    {
+      "id": "1206265984",
+      "type": "item",
+      "title": "Prayer for Freeport & Pace Campuses",
+      "bpm": null
+    },
+    {
+      "id": "1206265985",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1214576300",
-      "type": "item",
-      "title": "Meet & Greet Time",
-      "bpm": null
-    },
-    {
-      "id": "1206265612",
+      "id": "1206265989",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1206265613",
+      "id": "1214576318",
+      "type": "item",
+      "title": "Prayer moment",
+      "bpm": null
+    },
+    {
+      "id": "1206265991",
+      "type": "header",
+      "title": " Communion",
+      "bpm": null
+    },
+    {
+      "id": "1206265992",
+      "type": "item",
+      "title": "Communion explanation",
+      "bpm": null
+    },
+    {
+      "id": "1206265993",
+      "type": "song",
+      "title": "Center (Live)",
+      "bpm": 66
+    },
+    {
+      "id": "1206265995",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1206265614",
+      "id": "1206265997",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1206265615",
+      "id": "1206265998",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1206265616",
+      "id": "1206265999",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1206265618",
+      "id": "1206266000",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -109,22 +151,28 @@
   ],
   "songs": [
     {
-      "id": "1206265599",
+      "id": "1206265970",
       "type": "song",
-      "title": "Can't Help But Praise (Live)",
-      "bpm": 125
+      "title": "Take You At Your Word",
+      "bpm": 171.5
     },
     {
-      "id": "1206265601",
+      "id": "1218890707",
       "type": "song",
-      "title": "I Believe",
-      "bpm": 81
+      "title": "Good Plans",
+      "bpm": 67
     },
     {
-      "id": "1206265602",
+      "id": "1206265975",
       "type": "song",
-      "title": "Who Else",
-      "bpm": 68
+      "title": "Goodness Of God",
+      "bpm": 63
+    },
+    {
+      "id": "1206265993",
+      "type": "song",
+      "title": "Center (Live)",
+      "bpm": 66
     }
   ]
 }
