@@ -1,143 +1,119 @@
 {
-  "updated": "2026-08-02T11:22:05.275Z",
-  "planId": "89617720",
-  "planTitle": "“For I Know the Plans I Have For You”",
-  "planDate": "2026-08-02T08:00:00Z",
+  "updated": "2026-08-05T03:26:27.593Z",
+  "planId": "90141906",
+  "planTitle": "Faith Starts Here",
+  "planDate": "2026-08-09T08:00:00Z",
   "items": [
     {
-      "id": "1206265962",
+      "id": "1213425873",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1206265963",
+      "id": "1213425874",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1206265965",
+      "id": "1213425875",
       "type": "item",
       "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1206265967",
+      "id": "1213425876",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1206265968",
+      "id": "1213425877",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1206265970",
+      "id": "1213425878",
       "type": "song",
-      "title": "Take You At Your Word",
-      "bpm": 171.5
+      "title": "Move Of God",
+      "bpm": 97
     },
     {
-      "id": "1206265975",
-      "type": "song",
-      "title": "Goodness Of God",
-      "bpm": 63
-    },
-    {
-      "id": "1206265977",
-      "type": "item",
-      "title": "Prayer",
-      "bpm": null
-    },
-    {
-      "id": "1206265978",
-      "type": "header",
-      "title": "Prayer Connect Moment",
-      "bpm": null
-    },
-    {
-      "id": "1206265979",
-      "type": "item",
-      "title": "Connect Moment - Meredith",
-      "bpm": null
-    },
-    {
-      "id": "1206265982",
-      "type": "item",
-      "title": "Mission of the Week",
-      "bpm": null
-    },
-    {
-      "id": "1206265984",
-      "type": "item",
-      "title": "Prayer for Freeport & Pace Campuses",
-      "bpm": null
-    },
-    {
-      "id": "1206265985",
-      "type": "header",
-      "title": "Sermon",
-      "bpm": null
-    },
-    {
-      "id": "1206265989",
-      "type": "item",
-      "title": "Message",
-      "bpm": null
-    },
-    {
-      "id": "1214576318",
-      "type": "item",
-      "title": "Prayer moment",
-      "bpm": null
-    },
-    {
-      "id": "1206265991",
-      "type": "header",
-      "title": " Communion",
-      "bpm": null
-    },
-    {
-      "id": "1206265992",
-      "type": "item",
-      "title": "Communion explanation",
-      "bpm": null
-    },
-    {
-      "id": "1206265993",
+      "id": "1213425879",
       "type": "song",
       "title": "Center (Live)",
       "bpm": 66
     },
     {
-      "id": "1206265995",
+      "id": "1213425880",
+      "type": "song",
+      "title": "Mighty Name Of Jesus",
+      "bpm": 72
+    },
+    {
+      "id": "1213425881",
+      "type": "item",
+      "title": "Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1216747202",
+      "type": "item",
+      "title": "NO MEET & GREET (for BW)",
+      "bpm": null
+    },
+    {
+      "id": "1213425882",
+      "type": "header",
+      "title": "Connect Moment",
+      "bpm": null
+    },
+    {
+      "id": "1221756825",
+      "type": "item",
+      "title": "Back To School Prayer Moment",
+      "bpm": null
+    },
+    {
+      "id": "1213425887",
+      "type": "header",
+      "title": "Sermon",
+      "bpm": null
+    },
+    {
+      "id": "1213425889",
+      "type": "item",
+      "title": "Message",
+      "bpm": null
+    },
+    {
+      "id": "1213425890",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1206265997",
+      "id": "1213425891",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1206265998",
+      "id": "1213425892",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1206265999",
+      "id": "1213425893",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1206266000",
+      "id": "1213425894",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -145,22 +121,22 @@
   ],
   "songs": [
     {
-      "id": "1206265970",
+      "id": "1213425878",
       "type": "song",
-      "title": "Take You At Your Word",
-      "bpm": 171.5
+      "title": "Move Of God",
+      "bpm": 97
     },
     {
-      "id": "1206265975",
-      "type": "song",
-      "title": "Goodness Of God",
-      "bpm": 63
-    },
-    {
-      "id": "1206265993",
+      "id": "1213425879",
       "type": "song",
       "title": "Center (Live)",
       "bpm": 66
+    },
+    {
+      "id": "1213425880",
+      "type": "song",
+      "title": "Mighty Name Of Jesus",
+      "bpm": 72
     }
   ]
 }
