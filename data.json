@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-06T19:29:45.179Z",
+  "updated": "2026-08-09T10:43:04.984Z",
   "planId": "90141906",
   "planTitle": "Faith Starts Here",
   "planDate": "2026-08-09T08:00:00Z",
@@ -83,6 +83,12 @@
       "bpm": null
     },
     {
+      "id": "1225134156",
+      "type": "item",
+      "title": "Video Bumper",
+      "bpm": null
+    },
+    {
       "id": "1213425889",
       "type": "item",
       "title": "Message",
@@ -97,7 +103,7 @@
     {
       "id": "1213425891",
       "type": "item",
-      "title": "Closing",
+      "title": "Blessing of the Backpacks",
       "bpm": null
     },
     {
