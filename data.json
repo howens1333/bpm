@@ -1,125 +1,131 @@
 {
-  "updated": "2026-08-09T10:43:04.984Z",
-  "planId": "90141906",
-  "planTitle": "Faith Starts Here",
-  "planDate": "2026-08-09T08:00:00Z",
+  "updated": "2026-08-16T10:30:52.116Z",
+  "planId": "90141920",
+  "planTitle": "Resetting Your Rhythms",
+  "planDate": "2026-08-16T08:00:00Z",
   "items": [
     {
-      "id": "1213425873",
+      "id": "1213426035",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1213425874",
+      "id": "1213426036",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1213425875",
+      "id": "1213426037",
       "type": "item",
       "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1213425876",
+      "id": "1213426038",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1213425877",
+      "id": "1213426040",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1213425878",
+      "id": "1213426041",
       "type": "song",
-      "title": "Move Of God",
-      "bpm": 97
+      "title": "I Know That I Know",
+      "bpm": 142
     },
     {
-      "id": "1213425879",
+      "id": "1213426042",
       "type": "song",
-      "title": "Center (Live)",
-      "bpm": 66
+      "title": "Bless God",
+      "bpm": 72.5
     },
     {
-      "id": "1213425880",
+      "id": "1213426043",
       "type": "song",
-      "title": "Mighty Name Of Jesus",
-      "bpm": 72
+      "title": "Firm Foundation (He Won't)",
+      "bpm": 75
     },
     {
-      "id": "1213425881",
+      "id": "1213426044",
       "type": "item",
       "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1216747202",
-      "type": "item",
-      "title": "NO MEET & GREET (for BW)",
-      "bpm": null
-    },
-    {
-      "id": "1213425882",
+      "id": "1213426045",
       "type": "header",
       "title": "Connect Moment",
       "bpm": null
     },
     {
-      "id": "1221756825",
+      "id": "1213426046",
       "type": "item",
-      "title": "Back To School Prayer Moment",
+      "title": "Connect Moment-Resources & GroupLink",
       "bpm": null
     },
     {
-      "id": "1213425887",
+      "id": "1216735188",
+      "type": "item",
+      "title": "Resource: ",
+      "bpm": null
+    },
+    {
+      "id": "1213426050",
+      "type": "item",
+      "title": "Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1213426051",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1225134156",
+      "id": "1213426052",
       "type": "item",
-      "title": "Video Bumper",
+      "title": "Video: Bumper",
       "bpm": null
     },
     {
-      "id": "1213425889",
+      "id": "1213426053",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1213425890",
+      "id": "1213426057",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1213425891",
+      "id": "1213426058",
       "type": "item",
-      "title": "Blessing of the Backpacks",
+      "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1213425892",
+      "id": "1213426059",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1213425893",
+      "id": "1213426060",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1213425894",
+      "id": "1213426062",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -127,22 +133,22 @@
   ],
   "songs": [
     {
-      "id": "1213425878",
+      "id": "1213426041",
       "type": "song",
-      "title": "Move Of God",
-      "bpm": 97
+      "title": "I Know That I Know",
+      "bpm": 142
     },
     {
-      "id": "1213425879",
+      "id": "1213426042",
       "type": "song",
-      "title": "Center (Live)",
-      "bpm": 66
+      "title": "Bless God",
+      "bpm": 72.5
     },
     {
-      "id": "1213425880",
+      "id": "1213426043",
       "type": "song",
-      "title": "Mighty Name Of Jesus",
-      "bpm": 72
+      "title": "Firm Foundation (He Won't)",
+      "bpm": 75
     }
   ]
 }
