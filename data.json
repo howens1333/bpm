@@ -1,137 +1,119 @@
 {
-  "updated": "2026-08-23T10:31:31.351Z",
-  "planId": "90141937",
-  "planTitle": "Don't Miss The Moments",
-  "planDate": "2026-08-23T08:00:00Z",
+  "updated": "2026-08-29T17:20:22.197Z",
+  "planId": "90141950",
+  "planTitle": "Marking The Milestones",
+  "planDate": "2026-08-30T08:00:00Z",
   "items": [
     {
-      "id": "1213426253",
+      "id": "1213426479",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1213426254",
+      "id": "1213426480",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1213426256",
+      "id": "1213426481",
       "type": "item",
       "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1213426257",
+      "id": "1213426482",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1213426259",
+      "id": "1213426484",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1213426261",
+      "id": "1213426485",
       "type": "song",
-      "title": "The Joy",
-      "bpm": 132
+      "title": "Like You Are",
+      "bpm": 72
     },
     {
-      "id": "1229156157",
+      "id": "1213426486",
       "type": "song",
-      "title": "Center",
-      "bpm": 66
+      "title": "Highest One",
+      "bpm": 70
     },
     {
-      "id": "1213426263",
+      "id": "1213426487",
       "type": "song",
-      "title": "Trust In God",
-      "bpm": 74
+      "title": "Gratitude",
+      "bpm": 78
     },
     {
-      "id": "1213426264",
+      "id": "1213426489",
       "type": "item",
       "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1213426266",
-      "type": "header",
-      "title": "Connect Moment",
-      "bpm": null
-    },
-    {
-      "id": "1213426267",
-      "type": "item",
-      "title": "Connect Moment",
-      "bpm": null
-    },
-    {
-      "id": "1216735522",
-      "type": "item",
-      "title": "Resource: ",
-      "bpm": null
-    },
-    {
-      "id": "1213426270",
-      "type": "item",
-      "title": "Prayer",
-      "bpm": null
-    },
-    {
-      "id": "1213426271",
+      "id": "1213426496",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1213426275",
+      "id": "1213426499",
       "type": "item",
-      "title": "Video: Bumper",
+      "title": "Video: Testimony",
       "bpm": null
     },
     {
-      "id": "1213426277",
+      "id": "1213426500",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1213426279",
+      "id": "1213426501",
       "type": "header",
-      "title": " Communion",
+      "title": "Response Moment",
       "bpm": null
     },
     {
-      "id": "1213426284",
+      "id": "1213426502",
+      "type": "item",
+      "title": "Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1213426504",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1213426285",
+      "id": "1213426505",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1213426286",
+      "id": "1213426507",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1213426287",
+      "id": "1213426508",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1213426289",
+      "id": "1213426509",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -139,22 +121,22 @@
   ],
   "songs": [
     {
-      "id": "1213426261",
+      "id": "1213426485",
       "type": "song",
-      "title": "The Joy",
-      "bpm": 132
+      "title": "Like You Are",
+      "bpm": 72
     },
     {
-      "id": "1229156157",
+      "id": "1213426486",
       "type": "song",
-      "title": "Center",
-      "bpm": 66
+      "title": "Highest One",
+      "bpm": 70
     },
     {
-      "id": "1213426263",
+      "id": "1213426487",
       "type": "song",
-      "title": "Trust In God",
-      "bpm": 74
+      "title": "Gratitude",
+      "bpm": 78
     }
   ]
 }
