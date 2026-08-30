@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29T17:21:18.427Z",
+  "updated": "2026-08-30T11:37:42.486Z",
   "planId": "90141950",
   "planTitle": "Marking The Milestones",
   "planDate": "2026-08-30T08:00:00Z",
@@ -56,6 +56,18 @@
       "id": "1213426489",
       "type": "item",
       "title": "Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1232375160",
+      "type": "header",
+      "title": "Connect Moment",
+      "bpm": null
+    },
+    {
+      "id": "1232375202",
+      "type": "item",
+      "title": "Connect Moment-Milestone Cards",
       "bpm": null
     },
     {
