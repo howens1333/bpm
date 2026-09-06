@@ -1,137 +1,125 @@
 {
-  "updated": "2026-08-30T14:47:12.387Z",
-  "planId": "90141950",
-  "planTitle": "Marking The Milestones",
-  "planDate": "2026-08-30T08:00:00Z",
+  "updated": "2026-09-06T11:43:30.220Z",
+  "planId": "90214653",
+  "planTitle": "Matthew 3:1-12",
+  "planDate": "2026-09-06T08:00:00Z",
   "items": [
     {
-      "id": "1213426479",
+      "id": "1214389681",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1213426480",
+      "id": "1214389682",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1213426481",
+      "id": "1214389684",
       "type": "item",
-      "title": "5 Minute Countdown",
+      "title": "Pre-Service Video: What to expect?",
       "bpm": null
     },
     {
-      "id": "1213426482",
+      "id": "1214389689",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1213426484",
+      "id": "1224779634",
       "type": "item",
-      "title": "Welcome",
+      "title": "Worship Leader Prayer",
       "bpm": null
     },
     {
-      "id": "1213426485",
+      "id": "1214389691",
       "type": "song",
       "title": "Like You Are",
       "bpm": 72
     },
     {
-      "id": "1213426486",
+      "id": "1214389693",
       "type": "song",
-      "title": "Highest One",
-      "bpm": 70
+      "title": "Holy Forever",
+      "bpm": 72
     },
     {
-      "id": "1213426487",
+      "id": "1214389692",
       "type": "song",
-      "title": "Gratitude",
-      "bpm": 78
+      "title": "I Believe",
+      "bpm": 81
     },
     {
-      "id": "1213426489",
+      "id": "1214389696",
       "type": "item",
-      "title": "Prayer",
+      "title": "Praise Moment",
       "bpm": null
     },
     {
-      "id": "1232375160",
-      "type": "header",
-      "title": "Connect Moment",
-      "bpm": null
-    },
-    {
-      "id": "1232375202",
-      "type": "item",
-      "title": "Connect Moment-Milestone Cards",
-      "bpm": null
-    },
-    {
-      "id": "1232398623",
-      "type": "item",
-      "title": "Prayer",
-      "bpm": null
-    },
-    {
-      "id": "1213426496",
+      "id": "1214389706",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1213426499",
+      "id": "1214389707",
       "type": "item",
-      "title": "Video: Testimony",
+      "title": "Scripture Reading",
       "bpm": null
     },
     {
-      "id": "1213426500",
+      "id": "1214389708",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1213426501",
+      "id": "1214389712",
       "type": "header",
-      "title": "Response Moment",
+      "title": " Communion",
       "bpm": null
     },
     {
-      "id": "1213426502",
+      "id": "1214389713",
       "type": "item",
-      "title": "Prayer",
+      "title": "Communion explanation",
       "bpm": null
     },
     {
-      "id": "1213426504",
+      "id": "1214389714",
+      "type": "song",
+      "title": "My King Forever",
+      "bpm": 72
+    },
+    {
+      "id": "1214389715",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1213426505",
+      "id": "1214389717",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1213426507",
+      "id": "1214389718",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1213426508",
+      "id": "1214389720",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1213426509",
+      "id": "1214389722",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -139,22 +127,28 @@
   ],
   "songs": [
     {
-      "id": "1213426485",
+      "id": "1214389691",
       "type": "song",
       "title": "Like You Are",
       "bpm": 72
     },
     {
-      "id": "1213426486",
+      "id": "1214389693",
       "type": "song",
-      "title": "Highest One",
-      "bpm": 70
+      "title": "Holy Forever",
+      "bpm": 72
     },
     {
-      "id": "1213426487",
+      "id": "1214389692",
       "type": "song",
-      "title": "Gratitude",
-      "bpm": 78
+      "title": "I Believe",
+      "bpm": 81
+    },
+    {
+      "id": "1214389714",
+      "type": "song",
+      "title": "My King Forever",
+      "bpm": 72
     }
   ]
 }
