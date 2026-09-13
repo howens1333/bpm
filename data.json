@@ -1,125 +1,125 @@
 {
-  "updated": "2026-09-06T13:46:17.443Z",
-  "planId": "90214653",
-  "planTitle": "Matthew 3:1-12",
-  "planDate": "2026-09-06T08:00:00Z",
+  "updated": "2026-09-13T11:49:19.020Z",
+  "planId": "90214641",
+  "planTitle": "Matthew 6:5-18",
+  "planDate": "2026-09-13T08:00:00Z",
   "items": [
     {
-      "id": "1214389681",
+      "id": "1214388678",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1214389682",
+      "id": "1214388683",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1214389684",
+      "id": "1214388686",
       "type": "item",
       "title": "Pre-Service Video: What to expect?",
       "bpm": null
     },
     {
-      "id": "1214389689",
+      "id": "1224779602",
+      "type": "item",
+      "title": "Pre-Service Worship Leader Prayer",
+      "bpm": null
+    },
+    {
+      "id": "1214388690",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1224779634",
+      "id": "1214388695",
       "type": "item",
-      "title": "Worship Leader Prayer",
+      "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1214389691",
+      "id": "1214388700",
       "type": "song",
-      "title": "Like You Are",
+      "title": "Can't Help But Praise (Live)",
+      "bpm": 125
+    },
+    {
+      "id": "1214388701",
+      "type": "song",
+      "title": "Abide",
+      "bpm": 74
+    },
+    {
+      "id": "1214388705",
+      "type": "song",
+      "title": "Mighty Name Of Jesus",
       "bpm": 72
     },
     {
-      "id": "1214389693",
-      "type": "song",
-      "title": "Holy Forever",
-      "bpm": 72
-    },
-    {
-      "id": "1214389692",
-      "type": "song",
-      "title": "I Believe",
-      "bpm": 81
-    },
-    {
-      "id": "1214389696",
+      "id": "1214388709",
       "type": "item",
-      "title": "Praise Moment",
+      "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1214389706",
+      "id": "1214388712",
+      "type": "header",
+      "title": "Scripture Reading",
+      "bpm": null
+    },
+    {
+      "id": "1214388713",
+      "type": "item",
+      "title": "9/11 Prayer Moment",
+      "bpm": null
+    },
+    {
+      "id": "1214388725",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1214389707",
-      "type": "item",
-      "title": "Scripture Reading",
-      "bpm": null
-    },
-    {
-      "id": "1214389708",
+      "id": "1214388729",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1214389712",
-      "type": "header",
-      "title": " Communion",
-      "bpm": null
-    },
-    {
-      "id": "1214389713",
+      "id": "1214388728",
       "type": "item",
-      "title": "Communion explanation",
+      "title": "Live Scripture Reading ",
       "bpm": null
     },
     {
-      "id": "1214389714",
-      "type": "song",
-      "title": "My King Forever",
-      "bpm": 72
-    },
-    {
-      "id": "1214389715",
+      "id": "1214388730",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1214389717",
+      "id": "1214388731",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1214389718",
+      "id": "1214388732",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1214389720",
+      "id": "1214388736",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1214389722",
+      "id": "1214388738",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -127,27 +127,21 @@
   ],
   "songs": [
     {
-      "id": "1214389691",
+      "id": "1214388700",
       "type": "song",
-      "title": "Like You Are",
-      "bpm": 72
+      "title": "Can't Help But Praise (Live)",
+      "bpm": 125
     },
     {
-      "id": "1214389693",
+      "id": "1214388701",
       "type": "song",
-      "title": "Holy Forever",
-      "bpm": 72
+      "title": "Abide",
+      "bpm": 74
     },
     {
-      "id": "1214389692",
+      "id": "1214388705",
       "type": "song",
-      "title": "I Believe",
-      "bpm": 81
-    },
-    {
-      "id": "1214389714",
-      "type": "song",
-      "title": "My King Forever",
+      "title": "Mighty Name Of Jesus",
       "bpm": 72
     }
   ]
