@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-13T11:50:20.361Z",
+  "updated": "2026-09-13T13:40:26.819Z",
   "planId": "90214641",
   "planTitle": "Matthew 6:5-18",
   "planDate": "2026-09-13T08:00:00Z",
@@ -77,6 +77,12 @@
       "bpm": null
     },
     {
+      "id": "1214388728",
+      "type": "item",
+      "title": "Live Scripture Reading ",
+      "bpm": null
+    },
+    {
       "id": "1214388725",
       "type": "header",
       "title": "Sermon",
@@ -86,12 +92,6 @@
       "id": "1214388729",
       "type": "item",
       "title": "Message",
-      "bpm": null
-    },
-    {
-      "id": "1214388728",
-      "type": "item",
-      "title": "Live Scripture Reading ",
       "bpm": null
     },
     {
