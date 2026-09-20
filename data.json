@@ -1,125 +1,125 @@
 {
-  "updated": "2026-09-13T14:14:07.778Z",
-  "planId": "90214641",
-  "planTitle": "Matthew 6:5-18",
-  "planDate": "2026-09-13T08:00:00Z",
+  "updated": "2026-09-20T11:45:40.544Z",
+  "planId": "90214642",
+  "planTitle": "Matthew 16:13-20",
+  "planDate": "2026-09-20T08:00:00Z",
   "items": [
     {
-      "id": "1214388678",
+      "id": "1214388883",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1214388683",
+      "id": "1214388903",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1214388686",
+      "id": "1214388926",
       "type": "item",
-      "title": "Pre-Service Video: What to expect?",
+      "title": "5 Minute Countdown",
       "bpm": null
     },
     {
-      "id": "1224779602",
-      "type": "item",
-      "title": "Pre-Service Worship Leader Prayer",
-      "bpm": null
-    },
-    {
-      "id": "1214388690",
+      "id": "1214388943",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1214388695",
+      "id": "1214388960",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1214388700",
+      "id": "1214388972",
       "type": "song",
-      "title": "Can't Help But Praise (Live)",
-      "bpm": 125
-    },
-    {
-      "id": "1214388701",
-      "type": "song",
-      "title": "Abide",
-      "bpm": 74
-    },
-    {
-      "id": "1214388705",
-      "type": "song",
-      "title": "Mighty Name Of Jesus",
+      "title": "Like You Are",
       "bpm": 72
     },
     {
-      "id": "1214388709",
+      "id": "1238868392",
+      "type": "song",
+      "title": "My King Forever",
+      "bpm": 72
+    },
+    {
+      "id": "1214389010",
+      "type": "song",
+      "title": "Same God",
+      "bpm": 72.5
+    },
+    {
+      "id": "1214389027",
       "type": "item",
       "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1214388712",
+      "id": "1214389054",
       "type": "header",
-      "title": "Scripture Reading",
+      "title": "Testimony Moment",
       "bpm": null
     },
     {
-      "id": "1214388713",
+      "id": "1214389079",
       "type": "item",
-      "title": "9/11 Prayer Moment",
+      "title": "Generosity Moment/Three Ways to give",
       "bpm": null
     },
     {
-      "id": "1214388728",
+      "id": "1214389136",
       "type": "item",
-      "title": "Live Scripture Reading ",
+      "title": "VIDEO: Testimony",
       "bpm": null
     },
     {
-      "id": "1214388725",
+      "id": "1214389149",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1214388729",
+      "id": "1214389164",
+      "type": "item",
+      "title": "Live Scripture Reading - Matthew 16:13-20",
+      "bpm": null
+    },
+    {
+      "id": "1214389178",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1214388730",
+      "id": "1214389197",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1214388731",
+      "id": "1214389221",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1214388732",
+      "id": "1214389251",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1214388736",
+      "id": "1214389268",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1214388738",
+      "id": "1214389286",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -127,22 +127,22 @@
   ],
   "songs": [
     {
-      "id": "1214388700",
+      "id": "1214388972",
       "type": "song",
-      "title": "Can't Help But Praise (Live)",
-      "bpm": 125
-    },
-    {
-      "id": "1214388701",
-      "type": "song",
-      "title": "Abide",
-      "bpm": 74
-    },
-    {
-      "id": "1214388705",
-      "type": "song",
-      "title": "Mighty Name Of Jesus",
+      "title": "Like You Are",
       "bpm": 72
+    },
+    {
+      "id": "1238868392",
+      "type": "song",
+      "title": "My King Forever",
+      "bpm": 72
+    },
+    {
+      "id": "1214389010",
+      "type": "song",
+      "title": "Same God",
+      "bpm": 72.5
     }
   ]
 }
