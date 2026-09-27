@@ -1,125 +1,125 @@
 {
-  "updated": "2026-09-20T14:05:17.883Z",
-  "planId": "90214642",
-  "planTitle": "Matthew 16:13-20",
-  "planDate": "2026-09-20T08:00:00Z",
+  "updated": "2026-09-27T11:53:58.953Z",
+  "planId": "90214643",
+  "planTitle": "Matthew 18:1-6",
+  "planDate": "2026-09-27T08:00:00Z",
   "items": [
     {
-      "id": "1214388883",
+      "id": "1214388887",
       "type": "header",
       "title": "PRE-SERVICE",
       "bpm": null
     },
     {
-      "id": "1214388903",
+      "id": "1214388908",
       "type": "item",
       "title": "Pre-Roll",
       "bpm": null
     },
     {
-      "id": "1214388926",
+      "id": "1214388932",
       "type": "item",
-      "title": "5 Minute Countdown",
+      "title": "What To Expect Video",
       "bpm": null
     },
     {
-      "id": "1214388943",
+      "id": "1214388955",
       "type": "header",
       "title": "Beginning of Service /  Song Set",
       "bpm": null
     },
     {
-      "id": "1214388960",
+      "id": "1214388981",
       "type": "item",
       "title": "Welcome",
       "bpm": null
     },
     {
-      "id": "1214388972",
+      "id": "1214389003",
       "type": "song",
-      "title": "Like You Are",
-      "bpm": 72
+      "title": "Take You At Your Word",
+      "bpm": 171.5
     },
     {
-      "id": "1238868392",
+      "id": "1214389021",
       "type": "song",
-      "title": "My King Forever",
-      "bpm": 72
+      "title": "King Of Kings",
+      "bpm": 68
     },
     {
-      "id": "1214389010",
+      "id": "1214389041",
       "type": "song",
-      "title": "Same God",
-      "bpm": 72.5
+      "title": "Center",
+      "bpm": 66
     },
     {
-      "id": "1214389027",
+      "id": "1214389053",
       "type": "item",
       "title": "Prayer",
       "bpm": null
     },
     {
-      "id": "1214389054",
+      "id": "1214389061",
       "type": "header",
-      "title": "Testimony Moment",
+      "title": "Connect Moment",
       "bpm": null
     },
     {
-      "id": "1214389079",
+      "id": "1214389068",
       "type": "item",
-      "title": "Generosity Moment/Three Ways to give",
+      "title": "Meet & Greet",
       "bpm": null
     },
     {
-      "id": "1214389136",
+      "id": "1214389078",
       "type": "item",
-      "title": "VIDEO: Testimony",
+      "title": "Connect Moment & Discover Crosspoint",
       "bpm": null
     },
     {
-      "id": "1214389149",
+      "id": "1214389124",
       "type": "header",
       "title": "Sermon",
       "bpm": null
     },
     {
-      "id": "1214389164",
+      "id": "1214389129",
       "type": "item",
-      "title": "Live Scripture Reading - Matthew 16:13-20",
+      "title": "Live Scripture Reading - Matthew 18:1-6",
       "bpm": null
     },
     {
-      "id": "1214389178",
+      "id": "1214389139",
       "type": "item",
       "title": "Message",
       "bpm": null
     },
     {
-      "id": "1214389197",
+      "id": "1214389157",
       "type": "header",
       "title": "Closing / Send Out",
       "bpm": null
     },
     {
-      "id": "1214389221",
+      "id": "1214389183",
       "type": "item",
       "title": "Closing",
       "bpm": null
     },
     {
-      "id": "1214389251",
+      "id": "1214389201",
       "type": "item",
       "title": "Sending Out Prayer",
       "bpm": null
     },
     {
-      "id": "1214389268",
+      "id": "1214389233",
       "type": "header",
       "title": "Post-Service",
       "bpm": null
     },
     {
-      "id": "1214389286",
+      "id": "1214389259",
       "type": "item",
       "title": "Post-Roll",
       "bpm": null
@@ -127,22 +127,22 @@
   ],
   "songs": [
     {
-      "id": "1214388972",
+      "id": "1214389003",
       "type": "song",
-      "title": "Like You Are",
-      "bpm": 72
+      "title": "Take You At Your Word",
+      "bpm": 171.5
     },
     {
-      "id": "1238868392",
+      "id": "1214389021",
       "type": "song",
-      "title": "My King Forever",
-      "bpm": 72
+      "title": "King Of Kings",
+      "bpm": 68
     },
     {
-      "id": "1214389010",
+      "id": "1214389041",
       "type": "song",
-      "title": "Same God",
-      "bpm": 72.5
+      "title": "Center",
+      "bpm": 66
     }
   ]
 }
